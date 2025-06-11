@@ -124,12 +124,7 @@ void adicionarLivro(Livro livros[], int *totalLivros) {
         printf("Limite de livros atingido. Nao e possivel adicionar mais livros.\n");
         return;
     }
-    file = fopen(NOME_ARQUIVO_LIVROS, "a");
 
-    if (file == NULL) {
-        perror("Erro ao abrir o arquivo de livros");
-        return;
-    }
 
 
     printf("=== ADICIONAR LIVRO ===\n");
@@ -157,18 +152,58 @@ void adicionarLivro(Livro livros[], int *totalLivros) {
 
     livros[*totalLivros] = novoLivro;
     (*totalLivros)++;
-    fprintf(file, "\n%d;%s;%s;%d;%s;%d;%s;%.2f\n",
-            novoLivro.codigo,
-            novoLivro.titulo,
-            novoLivro.autor,
-            novoLivro.ano,
-            novoLivro.editora,
-            novoLivro.paginas,
-            novoLivro.genero,
-            novoLivro.valorAluguel);
-    fclose(file);
+    // file = fopen(NOME_ARQUIVO_LIVROS, "a");
+    //
+    // if (file == NULL) {
+    //     perror("Erro ao abrir o arquivo de livros");
+    //     return;
+    // }
+    // fprintf(file, "\n%d;%s;%s;%d;%s;%d;%s;%.2f\n",
+    //         novoLivro.codigo,
+    //         novoLivro.titulo,
+    //         novoLivro.autor,
+    //         novoLivro.ano,
+    //         novoLivro.editora,
+    //         novoLivro.paginas,
+    //         novoLivro.genero,
+    //         novoLivro.valorAluguel);
+    // fclose(file);
     printf("Livro '%s' adicionado com sucesso!\n", novoLivro.titulo);
 
+}
+
+int compararLivrosPorCodigo(const void *a, const void *b) {
+    Livro *livroA = (Livro *) a;
+    Livro *livroB = (Livro *) b;
+
+    return livroA->codigo - livroB->codigo;
+}
+
+void salvarAlteracoesNoArquivo(Livro livros[], int totalLivros) {
+    FILE *file;
+
+    file = fopen(NOME_ARQUIVO_LIVROS, "w");
+    if (file == NULL) {
+        perror("Erro ao abrir o arquivo de livros!");
+        return;
+    }
+
+    fprintf(file, "ID;Título;Autor(a);Ano;Editora;Páginas;Gênero;Valor de Aluguel (R$)");
+    qsort(livros, totalLivros, sizeof(Livro), compararLivrosPorCodigo);
+    for (int i = 0; i < totalLivros; i++) {
+        fprintf(file, "\n%d;%s;%s;%d;%s;%d;%s;%.2f",
+                livros[i].codigo,
+                livros[i].titulo,
+                livros[i].autor,
+                livros[i].ano,
+                livros[i].editora,
+                livros[i].paginas,
+                livros[i].genero,
+                livros[i].valorAluguel);
+    }
+
+    fclose(file);
+    printf("Alteracoes salvas com sucesso no arquivo '%s'.\n", NOME_ARQUIVO_LIVROS);
 }
 
 void editarLivro(Livro livros[], int totalLivros) {
@@ -201,29 +236,32 @@ void editarLivro(Livro livros[], int totalLivros) {
     printf("Digite o novo valor do aluguel: ");
     scanf("%f", &livroParaEditar->valorAluguel);
 
-    FILE *file = fopen(NOME_ARQUIVO_LIVROS, "w");
-    if (file == NULL) {
-        perror("Erro ao abrir o arquivo de livros para edicao");
-        return;
-    }
-
-    for (int i = 0; i < totalLivros; i++) {
-        fprintf(file, "%d;%s;%s;%d;%s;%d;%s;%.2f\n",
-                livros[i].codigo,
-                livros[i].titulo,
-                livros[i].autor,
-                livros[i].ano,
-                livros[i].editora,
-                livros[i].paginas,
-                livros[i].genero,
-                livros[i].valorAluguel);
-    }
-
-    fclose(file);
+    // FILE *file = fopen(NOME_ARQUIVO_LIVROS, "w");
+    // if (file == NULL) {
+    //     perror("Erro ao abrir o arquivo de livros para edicao");
+    //     return;
+    // }
+    //
+    // for (int i = 0; i < totalLivros; i++) {
+    //     fprintf(file, "%d;%s;%s;%d;%s;%d;%s;%.2f\n",
+    //             livros[i].codigo,
+    //             livros[i].titulo,
+    //             livros[i].autor,
+    //             livros[i].ano,
+    //             livros[i].editora,
+    //             livros[i].paginas,
+    //             livros[i].genero,
+    //             livros[i].valorAluguel);
+    // }
+    //
+    // fclose(file);
 
     printf("Livro '%s' editado com sucesso!\n", livroParaEditar->titulo);
 }
 
+// Função necessaria que diz ao qsort como comparar os livros
+// Recebe dois ponteiros genẽ́ricos, e devemos dizer o que cada um representa
+// Segue a lógica de comparação, retornando um valor negativo, zero ou positivo
 int compararLivros(const void *a, const void *b) {
     Livro *livroA = (Livro *) a;
     Livro *livroB = (Livro *) b;
@@ -344,6 +382,7 @@ void pesquisarLocacao(Locacao locacoes[], int totalLocacoes) {
 }
 
 void relatorioLocacoes(Locacao locacoes[], int totalLocacoes) {
+    float valorTotal = 0.0;
     printf("--- Locacoes ---\n");
     for (int i = 0; i < totalLocacoes; i++) {
         printf("Cliente: %s\n", locacoes[i].nomeCliente);
@@ -352,16 +391,18 @@ void relatorioLocacoes(Locacao locacoes[], int totalLocacoes) {
             printf("Livro: %s (Codigo: %d)\n", locacoes[i].livro->titulo, locacoes[i].livro->codigo);
             printf("Valor do Aluguel: R$%.2f\n", locacoes[i].livro->valorAluguel);
             printf("");
+            valorTotal += locacoes[i].livro->valorAluguel;
         } else {
             printf("Livro alterado ou não existente.\n");
         }
+        printf("-------------------------------\n");
+        printf("Valor total das locacoes: R$%.2f\n", valorTotal);
         printf("-------------------------------\n");
     }
 }
 
 int menuRelatorio() {
     int opcao;
-    printf("-------------------------------\n");
     printf("=== RELATORIOS ===\n");
     printf("1. Exibir todas as locacoes\n");
     printf("2. Pesquisar locacao por cliente\n");
@@ -400,6 +441,7 @@ int menuGerenciarLivros() {
     printf("1. Adicionar Livro\n");
     printf("2. Editar Livro\n");
     printf("3. Exibir Livros\n");
+    printf("4. Salvar Alteracoes\n");
     printf("0. Voltar ao menu principal\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
@@ -419,6 +461,9 @@ int exibirGerenciarLivros(Livro livros[], int *totalLivros) {
                 break;
             case 3:
                 exibirTodosLivros(livros, *totalLivros);
+                break;
+            case 4:
+                salvarAlteracoesNoArquivo(livros, *totalLivros);
                 break;
             case 0:
                 printf("Voltando ao menu principal...\n");

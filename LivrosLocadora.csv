@@ -1,0 +1,52 @@
+ID;Título;Autor(a);Ano;Editora;Páginas;Gênero;Valor de Aluguel (R$)
+1;Dom Casmurro;Machado de Assis;1899;Garnier;256;Romance;12.00
+2;O Alquimista;Paulo Coelho;1988;Rocco;208;Ficção espiritual;15.00
+3;Cabra Macho;Teste;20001;Fox;10;Drama;30.00
+4;A Hora da Estrela;Clarice Lispector;1977;Rocco;96;Romance psicológico;10.00
+5;Vidas Secas;Graciliano Ramos;1938;Record;176;Romance regionalista;11.00
+6;O Cortiço;Aluísio Azevedo;1890;Ática;240;Naturalismo;13.00
+7;Memórias Póstumas de Brás Cubas;Machado de Assis;1881;Garnier;240;Romance satírico;12.00
+8;O Quinze;Rachel de Queiroz;1930;José Olympio;208;Romance histórico;11.00
+9;Grande Sertão: Veredas;João Guimarães Rosa;1956;Nova Fronteira;608;Romance regionalista;18.00
+10;A Moreninha;Joaquim Manuel de Macedo;1844;Martin Claret;192;Romance romântico;9.00
+11;O Guarani;José de Alencar;1857;Ática;368;Romance indianista;14.00
+12;Iracema;José de Alencar;1865;Martin Claret;160;Romance indianista;10.00
+13;Macunaíma;Mário de Andrade;1928;Companhia das Letras;160;Modernismo;12.00
+14;A Paixão Segundo G.H.;Clarice Lispector;1964;Rocco;192;Romance filosófico;13.00
+15;O Ateneu;Raul Pompéia;1888;L&PM;224;Romance psicológico;11.00
+16;O Tempo e o Vento;Érico Veríssimo;1949;Globo;680;Romance épico;20.00
+17;Olhai os Lírios do Campo;Érico Veríssimo;1938;Companhia das Letras;352;Romance social;15.00
+18;A Revolução dos Bichos;George Orwell (trad.);2007;Companhia das Letras;152;Fábula política;10.00
+19;1984;George Orwell (trad.);2009;Companhia das Letras;416;Distopia;14.00
+20;O Pequeno Príncipe;Antoine de Saint-Exupéry (trad.);2015;Agir;96;Fábula filosófica;8.00
+21;Ensaio sobre a Cegueira;José Saramago (trad.);1995;Companhia das Letras;312;Ficção distópica;16.00
+22;O Hobbit;J.R.R. Tolkien (trad.);2019;HarperCollins;336;Fantasia;17.00
+23;O Senhor dos Anéis: A Sociedade do Anel;J.R.R. Tolkien (trad.);2019;Martins Fontes;576;Fantasia;22.00
+24;Crime e Castigo;Fiódor Dostoiévski (trad.);2016;Editora 34;608;Romance psicológico;18.00
+25;O Estrangeiro;Albert Camus (trad.);2014;Record;128;Romance existencial;12.00
+26;O Processo;Franz Kafka (trad.);2015;Companhia das Letras;224;Romance absurdo;13.00
+27;Cem Anos de Solidão;Gabriel García Márquez (trad.);2017;Record;448;Realismo mágico;19.00
+28;O Amor nos Tempos do Cólera;Gabriel García Márquez (trad.);2015;Record;496;Romance;18.00
+29;A Metamorfose;Franz Kafka (trad.);2014;Companhia das Letras;96;Ficção absurda;9.00
+30;O Nome da Rosa;Umberto Eco (trad.);2010;Record;592;Romance histórico;20.00
+31;O Retrato de Dorian Gray;Oscar Wilde (trad.);2018;Penguin-Companhia;320;Romance gótico;15.00
+32;Orgulho e Preconceito;Jane Austen (trad.);2019;Martin Claret;424;Romance clássico;16.00
+33;O Sol é para Todos;Harper Lee (trad.);2006;José Olympio;364;Romance social;14.00
+34;Lolita;Vladimir Nabokov (trad.);2017;Companhia das Letras;464;Romance polêmico;17.00
+35;Fahrenheit 451;Ray Bradbury (trad.);2012;Biblioteca Azul;216;Ficção distópica;13.00
+36;O Apanhador no Campo de Centeio;J.D. Salinger (trad.);2014;Editora do Autor;288;Romance de formação;12.00
+37;O Velho e o Mar;Ernest Hemingway (trad.);2013;Bertrand Brasil;128;Novela literária;10.00
+38;Moby Dick;Herman Melville (trad.);2015;Martin Claret;656;Aventura;21.00
+39;O Conde de Monte Cristo;Alexandre Dumas (trad.);2016;Zahar;1328;Aventura histórica;25.00
+40;Os Miseráveis;Victor Hugo (trad.);2017;Nova Fronteira;1488;Romance histórico;28.00
+41;O Morro dos Ventos Uivantes;Emily Brontë (trad.);2018;Penguin-Companhia;416;Romance gótico;16.00
+42;Drácula;Bram Stoker (trad.);2019;Martin Claret;512;Terror gótico;18.00
+43;Frankenstein;Mary Shelley (trad.);2017;DarkSide;280;Terror gótico;15.00
+44;O Iluminado;Stephen King (trad.);2012;Suma;464;Terror psicológico;19.00
+45;It: A Coisa;Stephen King (trad.);2014;Suma;1104;Terror;24.00
+46;Neuromancer;William Gibson (trad.);2016;Aleph;320;Cyberpunk;17.00
+47;Duna;Frank Herbert (trad.);2017;Aleph;680;Ficção científica;22.00
+48;Fundação;Isaac Asimov (trad.);2015;Aleph;320;Ficção científica;16.00
+49;O Guia do Mochileiro das Galáxias;Douglas Adams (trad.);2017;Arqueiro;208;Ficção cômica;14.00
+50;A Menina que Roubava Livros;Markus Zusak (trad.);2014;Intrínseca;480;Drama histórico;18.00
+51;Novo Livro;Autor Novo;291;Lop;20;Drama;100.00
